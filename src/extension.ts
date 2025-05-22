@@ -7,11 +7,14 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.languages.createDiagnosticCollection("NCEA CSM Style");
   context.subscriptions.push(diagnosticCollection);
 
+  const redHighlightDecoration = vscode.window.createTextEditorDecorationType({
+    backgroundColor: "rgba(255, 0, 0, 0.3)",
+  });
+
   const runStyleCheck = (document: vscode.TextDocument) => {
     if (document.languageId !== "python") {
       return;
     }
-
     const filePath = document.uri.fsPath;
     const configPath = path.join(context.extensionPath, "src", "config");
     const pycodestylePath = path.join(configPath, "custom_pycodestyle.py");
@@ -24,12 +27,7 @@ export function activate(context: vscode.ExtensionContext) {
     const editor = vscode.window.visibleTextEditors.find(
       (e) => e.document.uri.fsPath === document.uri.fsPath
     );
-
-    const redHighlightDecoration = vscode.window.createTextEditorDecorationType(
-      {
-        backgroundColor: "rgba(255, 0, 0, 0.3)",
-      }
-    );
+    editor ? editor.setDecorations(redHighlightDecoration, []) : null;
 
     let completed = 0;
 
@@ -51,8 +49,8 @@ export function activate(context: vscode.ExtensionContext) {
           return;
         }
 
-        const [, , lineNumber, colnum, message] = match;
-        console.log(lineNumber, colnum, message);
+        const lineNumber = match[2];
+        const message = match[4];
 
         const line = parseInt(lineNumber, 10) - 1;
 
