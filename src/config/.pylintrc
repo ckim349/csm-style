@@ -1,0 +1,15 @@
+[MASTER]
+disable=all
+enable=invalid-name, typevar-name-mismatch, redefined-builtin
+
+[BASIC]
+function-naming-style=snake_case
+variable-naming-style=snake_case
+argument-naming-style=snake_case
+attr-naming-style=snake_case
+class-naming-style=PascalCase
+const-naming-style=UPPER_CASE
+method-naming-style=snake_case
+module-naming-style=snake_case
+class-attribute-naming-style=snake_case
+good-names=i,j,k,x,y,z,_,T

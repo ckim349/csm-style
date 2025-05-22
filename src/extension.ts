@@ -1,26 +1,121 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
+import { exec } from "child_process";
+import * as path from "path";
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
-export function activate(context: vscode.ExtensionContext) {
-
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "csm-style" is now active!');
-
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	const disposable = vscode.commands.registerCommand('csm-style.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from csm-style!');
-	});
-
-	context.subscriptions.push(disposable);
+interface ExecError extends Error {
+  code?: number;
+  signal?: string;
 }
 
-// This method is called when your extension is deactivated
+interface ExecCallback {
+  (err: ExecError | null, stdout: string, stderr: string): void;
+}
+
+export function activate(context: vscode.ExtensionContext) {
+  const diagnosticCollection =
+    vscode.languages.createDiagnosticCollection("NCEA CSM Style");
+  context.subscriptions.push(diagnosticCollection);
+
+  const runStyleCheck = (document: vscode.TextDocument) => {
+    if (document.languageId !== "python") {
+      return;
+    }
+
+    const filePath = document.uri.fsPath;
+    const configPath = path.join(context.extensionPath, "src", "config");
+    const pycodestylePath = path.join(configPath, "custom_pycodestyle.py");
+    const pylintPath = path.join(configPath, ".pylintrc");
+    const ruffPath = path.join(configPath, "pyproject.toml");
+
+    const allDiagnostics: vscode.Diagnostic[] = [];
+    const allHighlightRanges: vscode.Range[] = [];
+
+    const editor = vscode.window.visibleTextEditors.find(
+      (e) => e.document.uri.fsPath === document.uri.fsPath
+    );
+
+    const redHighlightDecoration = vscode.window.createTextEditorDecorationType(
+      {
+        backgroundColor: "rgba(255, 0, 0, 0.3)",
+      }
+    );
+
+    let completed = 0;
+
+    const handleOutput = (stdout: string) => {
+      stdout.split("\n").forEach((row) => {
+        if (
+          row.startsWith("********") ||
+          row.startsWith("---") ||
+          row.startsWith("Your code has been rated") ||
+          row.startsWith("Found ") ||
+          row.startsWith("[*]")
+        ) {
+          return;
+        }
+
+        const trimmedRow = row.trim();
+        const match = trimmedRow.match(/^(.+?):(\d+):(\d+): (.+)$/);
+        if (!match) {
+          return;
+        }
+
+        const [, , lineNumber, colnum, message] = match;
+        console.log(lineNumber, colnum, message);
+
+        const line = parseInt(lineNumber, 10) - 1;
+
+        const lineLength = document.lineAt(line).text.length;
+        const range = new vscode.Range(
+          new vscode.Position(line, 0),
+          new vscode.Position(line, lineLength)
+        );
+
+        const diagnostic = new vscode.Diagnostic(
+          range,
+          message,
+          vscode.DiagnosticSeverity.Error
+        );
+        diagnostic.source = "NCEA CSM Style";
+
+        allDiagnostics.push(diagnostic);
+        allHighlightRanges.push(range);
+      });
+    };
+
+    const onDone = () => {
+      completed++;
+      if (completed === 3) {
+        diagnosticCollection.set(document.uri, allDiagnostics);
+        if (editor) {
+          editor.setDecorations(redHighlightDecoration, allHighlightRanges);
+        }
+      }
+    };
+
+    const makeExec = (command: string) => {
+      exec(command, { cwd: path.dirname(filePath) }, (err, stdout, stderr) => {
+        handleOutput(stdout);
+        onDone();
+      });
+    };
+
+    makeExec(`python "${pycodestylePath}" "${filePath}"`);
+    makeExec(`pylint --rcfile "${pylintPath}" "${filePath}"`);
+    makeExec(`ruff check --config "${ruffPath}" "${filePath}" --preview`);
+  };
+
+  // Run on file open
+  vscode.workspace.textDocuments.forEach(runStyleCheck);
+  vscode.workspace.onDidOpenTextDocument(runStyleCheck);
+
+  // Run on file save
+  vscode.workspace.onDidSaveTextDocument(runStyleCheck);
+
+  // Clear diagnostics when file is closed
+  vscode.workspace.onDidCloseTextDocument((document) => {
+    diagnosticCollection.delete(document.uri);
+  });
+}
+
 export function deactivate() {}
