@@ -2,15 +2,6 @@ import * as vscode from "vscode";
 import { exec } from "child_process";
 import * as path from "path";
 
-interface ExecError extends Error {
-  code?: number;
-  signal?: string;
-}
-
-interface ExecCallback {
-  (err: ExecError | null, stdout: string, stderr: string): void;
-}
-
 export function activate(context: vscode.ExtensionContext) {
   const diagnosticCollection =
     vscode.languages.createDiagnosticCollection("NCEA CSM Style");
@@ -105,14 +96,10 @@ export function activate(context: vscode.ExtensionContext) {
     makeExec(`ruff check --config "${ruffPath}" "${filePath}" --preview`);
   };
 
-  // Run on file open
+  // Run on open, save and delete on close
   vscode.workspace.textDocuments.forEach(runStyleCheck);
   vscode.workspace.onDidOpenTextDocument(runStyleCheck);
-
-  // Run on file save
   vscode.workspace.onDidSaveTextDocument(runStyleCheck);
-
-  // Clear diagnostics when file is closed
   vscode.workspace.onDidCloseTextDocument((document) => {
     diagnosticCollection.delete(document.uri);
   });
