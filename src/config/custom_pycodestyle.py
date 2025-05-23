@@ -14,13 +14,14 @@ def check_two_blank_lines_before_top_level(logical_line, blank_lines, indent_lev
 
 
 @pycodestyle.register_check
-def check_one_blank_line_before_inner_methods(logical_line, blank_lines, indent_level):
+def check_one_blank_line_before_inner_methods(logical_line, blank_lines, indent_level, lines, line_number):
     """
     Check that method definitions inside a class are preceded by one blank line.
     """
     if indent_level > 0 and (logical_line.strip().startswith('def ')):
         if blank_lines < 1:
-            yield (0, "CSM2 method definitions inside a class should be preceded by one blank line")
+            if lines[line_number - 2].strip().startswith('class '): 
+                yield (0, "CSM2 method definitions inside a class should be preceded by one blank line")
 
 
 # Check just one file specified in the CLI
