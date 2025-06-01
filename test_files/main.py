@@ -1,3 +1,8 @@
+"""Module docstring."""
+import os
+__all__ = 1
+
+
 # 4 space indentation check
 if True:
   print('ding')

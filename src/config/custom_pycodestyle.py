@@ -1,6 +1,6 @@
 import pycodestyle
 import sys
-# import os
+import re
 
 
 @pycodestyle.register_check
@@ -24,19 +24,43 @@ def check_one_blank_line_before_inner_methods(logical_line, blank_lines, indent_
                 yield (0, "CSM2 method definitions inside a class should be preceded by one blank line")
 
 
+@pycodestyle.register_check
+def check_dunder_placement(logical_line, lines, line_number):
+    """
+    Check if module-level dunder assignments appear after docstring and before
+    import statements.
+    """
+    if not logical_line.strip().startswith('__'):
+        return  # only run once at start
+    dunder_regex = re.compile(r'^__\w+__\s*=')
+
+    found_docstring = False
+    first_import_line = None
+    first_dunder_line = None
+
+    for i, line in enumerate(lines):
+        stripped = line.strip()
+
+        if not found_docstring and (stripped.startswith('"""')):
+            found_docstring = True
+            continue
+
+        if stripped.startswith('import ') or stripped.startswith('from '):
+            first_import_line = i + 1
+            break
+
+        if dunder_regex.match(stripped):
+            first_dunder_line = i + 1
+            break
+
+    if (first_import_line and not first_dunder_line) or (first_import_line and not first_dunder_line):
+        yield (0, "CSM3 dunders should appear after module docstring and before imports")
+
 # Check just one file specified in the CLI
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Usage: python custom_pycodestyle_checks.py <filename.py>")
         sys.exit(1)
     filename = sys.argv[1]
-    style_guide = pycodestyle.StyleGuide(select=["E125", "E126", "E127", "E128", "E101", "CSM1", "CSM2"])
+    style_guide = pycodestyle.StyleGuide(select=["E125", "E126", "E127", "E128", "E101", "CSM1", "CSM2", "CSM3"])
     style_guide.input_file(filename)
-
-# # Check all files in the current directory
-# if __name__ == "__main__":
-#     style_guide = pycodestyle.StyleGuide()
-#     py_files = [f for f in os.listdir('.') if f.endswith('.py')]
-#     for filename in py_files:
-#         print(f"Checking {filename}")
-#         style_guide.input_file(filename)
