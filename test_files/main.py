@@ -1,3 +1,17 @@
+"""Module docstring."""
+import os
+__all__ = 1
+
+
+def foo(x):
+    if x >= 0:
+        return math.sqrt(x)
+
+def bar(x):
+    if x < 0:
+        return
+    return math.sqrt(x)
+
 # 4 space indentation check
 if True:
   print('ding')
