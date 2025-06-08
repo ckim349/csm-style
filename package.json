@@ -27,10 +27,43 @@
     ],
     "commands": [
       {
-        "command": "csm-style.helloWorld",
-        "title": "Hello World"
+        "command": "ncea-csm-style.ignoreSpecificViolation",
+        "title": "Ignore This Violation"
+      },
+      {
+        "command": "ncea-csm-style.ignoreSuggestion",
+        "title": "Ignore Style Violation",
+        "category": "NCEA CSM Style"
+      },
+      {
+        "command": "ncea-csm-style.manageIgnored",
+        "title": "Manage Ignored Violations",
+        "category": "NCEA CSM Style"
+      },
+      {
+        "command": "ncea-csm-style.clearAllIgnored",
+        "title": "Clear All Ignored Violations",
+        "category": "NCEA CSM Style"
       }
-    ]
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "ncea-csm-style.ignoreSpecificViolation",
+          "when": "false"
+        },
+        {
+          "command": "ncea-csm-style.ignoreSuggestion",
+          "when": "editorLangId == python"
+        },
+        {
+          "command": "ncea-csm-style.manageIgnored"
+        },
+        {
+          "command": "ncea-csm-style.clearAllIgnored"
+        }
+      ]
+    }
   },
   "files": [
     "scripts/**"
