@@ -18,3 +18,7 @@ select = [
 
 [tool.ruff.lint.pycodestyle]
 max-doc-length = 72
+
+[tool.vulture]
+min_confidence = 80
+verbose = false

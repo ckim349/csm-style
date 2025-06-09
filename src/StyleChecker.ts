@@ -46,6 +46,12 @@ export class StyleChecker {
         allDiagnostics,
         allHighlightRanges
       ),
+      this.runStyleTool(
+        `vulture --config "${ruffPath}" "${filePath}"`,
+        document,
+        allDiagnostics,
+        allHighlightRanges
+      ),
     ]);
 
     return {
@@ -88,7 +94,7 @@ export class StyleChecker {
         return;
       }
 
-      const match = row.trim().match(/^(.+?):(\d+):(\d+): (.+)$/);
+      const match = row.trim().match(/^(.+?):(\d+)(?::(\d+))?: (.+)$/);
       if (!match) {
         return;
       }
