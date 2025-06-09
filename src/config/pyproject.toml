@@ -13,11 +13,15 @@ select = [
     "D101", "D102", "D103", "D104", "D105", "D106", "D107", "D419", "D209",
     "D200", "D201", "D202", "D400", "D401", "D402", "D403", "D404", "D213",
     "D204", "D205", "D206", "D207", "D208", "E741", "N818", "N804", "N805",
-    "A002", "E714", "E731", "E722", "RET502", "E721", "E712", "ERA001"
+    "A002", "E714", "E731", "E722", "RET502", "E721", "E712", "ERA001",
+    "C901", "SIM102", 
     ]
 
 [tool.ruff.lint.pycodestyle]
 max-doc-length = 72
+
+[tool.ruff.lint.mccabe]
+max-complexity = 8
 
 [tool.vulture]
 min_confidence = 80
