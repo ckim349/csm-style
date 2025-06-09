@@ -99,9 +99,9 @@ export class CommandManager {
   private createQuickPickItems(): ViolationQuickPickItem[] {
     return Array.from(this.ignoredViolations).map((violation) => {
       const parts = violation.split(":");
-      const filePath = parts[0];
-      const line = parts[1];
-      const message = parts.slice(2).join(":");
+      const filePath = parts[0] + ":" + parts[1];
+      const line = parts[2];
+      const message = parts[3];
       const fileName = path.basename(filePath);
 
       return {
@@ -134,11 +134,13 @@ export class CommandManager {
       const document = vscode.workspace.textDocuments.find(
         (doc) => doc.uri.fsPath === filePath
       );
+      console.log(filePath);
+      console.log(document);
       if (document) {
-        // Clear existing decorations first
         this.decorationManager.clearDecorations(document);
 
         const result = await this.styleChecker.checkDocument(document);
+        console.log(result);
         if (result) {
           this.diagnosticCollection.set(document.uri, result.diagnostics);
           this.decorationManager.applyDecorations(
