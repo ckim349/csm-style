@@ -34,8 +34,7 @@ export class RuleExplanationManager {
     const patterns = [
       /^([A-Z]\d{3})\s/, // E501, Q000, etc.
       /^([A-Z]{3}\d+)\s/, // CSM1, CSM2, etc.
-      /\[([A-Z]\d{3})\]/, // [Q000] format
-      /\[([A-Z]{3}\d+)\]/, // [CSM1] format
+      /^([A-Z]\d{4}):/, // C0103: format (Pylint)
     ];
 
     for (const pattern of patterns) {

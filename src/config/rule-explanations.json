@@ -46,5 +46,11 @@
     "description": "Custom CSM rule for proper placement of dunder assignments",
     "rationale": "Proper placement of dunder assignments (like __version__, __author__) follows Python conventions and improves code organization.",
     "csmRelation": "This rule supports CSM's structure principle by ensuring consistent and logical organization of module elements."
+  },
+  "C0103": {
+    "code": "C0103",
+    "description": "Variable, function, or class name does not follow Python naming conventions",
+    "rationale": "Proper naming conventions improve code readability and maintainability. They help other developers understand the purpose and scope of variables, functions, and classes at a glance. Following consistent naming patterns reduces cognitive load and makes code more professional.",
+    "csmRelation": "This rule directly supports CSM's readability and consistency principles. Clear, consistent naming conventions help readers quickly understand code structure and purpose, reducing the time needed to comprehend and maintain code."
   }
 }
