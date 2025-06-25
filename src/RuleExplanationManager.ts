@@ -59,9 +59,6 @@ export class RuleExplanationManager {
     // Add a separator
     enhancedMessage += `\n\n---\n\n`;
 
-    // Add the enhanced information
-    enhancedMessage += `${explanation.description}`;
-
     if (explanation.rationale) {
       enhancedMessage += `\n\n**Rationale:** ${explanation.rationale}`;
     }

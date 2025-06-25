@@ -19,7 +19,6 @@ export interface DecorationManager {
 
 export interface RuleExplanation {
   code: string;
-  description: string;
   rationale: string;
   csmRelation?: string;
 }
