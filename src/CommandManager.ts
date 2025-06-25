@@ -3,8 +3,11 @@ import * as path from "path";
 import { StyleChecker } from "./StyleChecker";
 import { ViolationQuickPickItem, DecorationManager } from "./types";
 import { getViolationKey } from "./ignoreViolationsUtils";
+import { RuleExplanationManager } from "./RuleExplanationManager";
 
 export class CommandManager {
+  private ruleExplanationManager: RuleExplanationManager;
+
   constructor(
     private readonly context: vscode.ExtensionContext,
     private readonly ignoredViolations: Set<string>,
@@ -12,21 +15,24 @@ export class CommandManager {
     private readonly diagnosticCollection: vscode.DiagnosticCollection,
     private readonly decorationManager: DecorationManager
   ) {
+    this.ruleExplanationManager = new RuleExplanationManager(
+      context.extensionPath
+    );
     this.registerCommands();
   }
 
   private registerCommands(): void {
     this.context.subscriptions.push(
       vscode.commands.registerCommand(
-        "ncea-csm-style.ignoreSpecificViolation",
+        "csm-style.ignoreSpecificViolation",
         this.ignoreSpecificViolation.bind(this)
       ),
       vscode.commands.registerCommand(
-        "ncea-csm-style.manageIgnored",
+        "csm-style.manageIgnored",
         this.manageIgnored.bind(this)
       ),
       vscode.commands.registerCommand(
-        "ncea-csm-style.clearAllIgnored",
+        "csm-style.clearAllIgnored",
         this.clearAllIgnored.bind(this)
       )
     );
@@ -104,9 +110,12 @@ export class CommandManager {
       const message = parts[3];
       const fileName = path.basename(filePath);
 
+      // Extract original message if it's enhanced
+      const originalMessage = message.split("\n\n---\n\n")[0] || message;
+
       return {
         label: `${fileName}:${parseInt(line) + 1}`,
-        description: message,
+        description: originalMessage,
         detail: filePath,
         violation,
       };

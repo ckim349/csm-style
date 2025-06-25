@@ -9,7 +9,7 @@ import {
 
 export function activate(context: vscode.ExtensionContext) {
   const diagnosticCollection =
-    vscode.languages.createDiagnosticCollection("NCEA CSM Style");
+    vscode.languages.createDiagnosticCollection("CSM Style");
   const decorationManager = new VSCodeDecorationManager();
   const ignoredViolations = new Set<string>();
 

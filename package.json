@@ -27,40 +27,40 @@
     ],
     "commands": [
       {
-        "command": "ncea-csm-style.ignoreSpecificViolation",
+        "command": "csm-style.ignoreSpecificViolation",
         "title": "Ignore This Violation"
       },
       {
-        "command": "ncea-csm-style.ignoreSuggestion",
+        "command": "csm-style.ignoreSuggestion",
         "title": "Ignore Style Violation",
-        "category": "NCEA CSM Style"
+        "category": "CSM Style"
       },
       {
-        "command": "ncea-csm-style.manageIgnored",
+        "command": "csm-style.manageIgnored",
         "title": "Manage Ignored Violations",
-        "category": "NCEA CSM Style"
+        "category": "CSM Style"
       },
       {
-        "command": "ncea-csm-style.clearAllIgnored",
+        "command": "csm-style.clearAllIgnored",
         "title": "Clear All Ignored Violations",
-        "category": "NCEA CSM Style"
+        "category": "CSM Style"
       }
     ],
     "menus": {
       "commandPalette": [
         {
-          "command": "ncea-csm-style.ignoreSpecificViolation",
+          "command": "csm-style.ignoreSpecificViolation",
           "when": "false"
         },
         {
-          "command": "ncea-csm-style.ignoreSuggestion",
+          "command": "csm-style.ignoreSuggestion",
           "when": "editorLangId == python"
         },
         {
-          "command": "ncea-csm-style.manageIgnored"
+          "command": "csm-style.manageIgnored"
         },
         {
-          "command": "ncea-csm-style.clearAllIgnored"
+          "command": "csm-style.clearAllIgnored"
         }
       ]
     }
