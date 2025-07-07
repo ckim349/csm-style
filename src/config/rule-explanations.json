@@ -2,46 +2,56 @@
   "Q000": {
     "code": "Q000",
     "rationale": "Consistent use of double quotes improves code readability and follows Python community conventions. It also makes it easier to include apostrophes in strings without escaping.",
-    "csmRelation": "This rule supports CSM's emphasis on consistency and readability. Consistent quote usage reduces cognitive load when reading code and makes the codebase more maintainable."
+    "csmPrinciples": "This rule supports CSM's emphasis on consistency and readability. Consistent quote usage reduces cognitive load when reading code and makes the codebase more maintainable."
   },
   "E501": {
     "code": "E501",
     "rationale": "Shorter lines improve readability, especially on smaller screens and when printing code. They also make it easier to compare code side-by-side.",
-    "csmRelation": "This rule directly supports CSM's readability principle by ensuring code can be easily read on various display devices and in different contexts."
+    "csmPrinciples": "This rule directly supports CSM's readability principle by ensuring code can be easily read on various display devices and in different contexts."
   },
   "E302": {
     "code": "E302",
     "rationale": "Two blank lines provide clear visual separation between top-level elements, making the code structure more apparent and easier to navigate.",
-    "csmRelation": "This rule supports CSM's structure principle by creating clear visual boundaries that help readers understand the code's organization."
+    "csmPrinciples": "This rule supports CSM's structure principle by creating clear visual boundaries that help readers understand the code's organization."
   },
   "E303": {
     "code": "E303",
     "rationale": "Excessive blank lines can make code harder to read and navigate. Consistent spacing helps maintain visual clarity.",
-    "csmRelation": "This rule supports CSM's consistency principle by maintaining appropriate visual spacing throughout the code."
+    "csmPrinciples": "This rule supports CSM's consistency principle by maintaining appropriate visual spacing throughout the code."
   },
   "CSM1": {
     "code": "CSM1",
     "rationale": "Two blank lines before top-level functions and classes provide clear visual separation and improve code readability.",
-    "csmRelation": "This custom rule directly implements CSM's structure principle by ensuring clear visual boundaries in code organization."
+    "csmPrinciples": "Clear Layout"
   },
   "CSM2": {
     "code": "CSM2",
-    "rationale": "Two blank lines at the end of files provide consistent spacing and make it clear where the file ends.",
-    "csmRelation": "This rule supports CSM's consistency principle by maintaining uniform spacing patterns throughout the codebase."
+    "rationale": "Two blank lines after top-level functions and classes provide clear visual separation and improve code readability.",
+    "csmPrinciples": "Clear Layout"
   },
   "CSM3": {
     "code": "CSM3",
-    "rationale": "One blank line between methods provides clear separation while maintaining the visual grouping of class members.",
-    "csmRelation": "This rule supports CSM's structure principle by creating appropriate visual hierarchy within class definitions."
+    "rationale": "One blank line between methods provides clear visual separation while maintaining the visual grouping of class members.",
+    "csmPrinciples": "This rule supports CSM's structure principle by creating appropriate visual hierarchy within class definitions."
   },
   "CSM4": {
     "code": "CSM4",
     "rationale": "Proper placement of dunder assignments (like __version__, __author__) follows Python conventions and improves code organization.",
-    "csmRelation": "This rule supports CSM's structure principle by ensuring consistent and logical organization of module elements."
+    "csmPrinciples": "This rule supports CSM's structure principle by ensuring consistent and logical organization of module elements."
   },
   "C0103": {
     "code": "C0103",
     "rationale": "Proper naming conventions improve code readability and maintainability. They help other developers understand the purpose and scope of variables, functions, and classes at a glance. Following consistent naming patterns reduces cognitive load and makes code more professional.",
-    "csmRelation": "This rule directly supports CSM's readability and consistency principles. Clear, consistent naming conventions help readers quickly understand code structure and purpose, reducing the time needed to comprehend and maintain code."
+    "csmPrinciples": "This rule directly supports CSM's readability and consistency principles. Clear, consistent naming conventions help readers quickly understand code structure and purpose, reducing the time needed to comprehend and maintain code."
+  },
+  "D100": {
+    "code": "D100",
+    "rationale": "Developers should document the purposes of their work to give context into usage and the project as a whole.",
+    "csmPrinciples": "Explanatory Language"
+  },
+  "D103": {
+    "code": "D103",
+    "rationale": "Developers should document the purposes of their work to give context into usage and the project as a whole.",
+    "csmPrinciples": "Explanatory Language"
   }
 }

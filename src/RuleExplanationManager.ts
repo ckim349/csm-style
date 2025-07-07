@@ -53,18 +53,14 @@ export class RuleExplanationManager {
       return message;
     }
 
-    // Start with the original message
     let enhancedMessage = message;
 
-    // Add a separator
-    enhancedMessage += `\n\n---\n\n`;
-
     if (explanation.rationale) {
-      enhancedMessage += `\n\n**Rationale:** ${explanation.rationale}`;
+      enhancedMessage += `\n\nRationale: ${explanation.rationale}`;
     }
 
-    if (explanation.csmRelation) {
-      enhancedMessage += `\n\n**CSM Relation:** ${explanation.csmRelation}`;
+    if (explanation.csmPrinciples) {
+      enhancedMessage += `\n\nCSM Relation: ${explanation.csmPrinciples}`;
     }
 
     return enhancedMessage;
