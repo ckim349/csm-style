@@ -6,8 +6,8 @@
   },
   "E501": {
     "code": "E501",
-    "rationale": "Shorter lines improve readability, especially on smaller screens and when printing code. They also make it easier to compare code side-by-side.",
-    "csmPrinciples": "This rule directly supports CSM's readability principle by ensuring code can be easily read on various display devices and in different contexts."
+    "rationale": "Shorter lines improve readability, especially on smaller screens. They also make it easier to compare code side-by-side.",
+    "csmPrinciples": "Clear Layout"
   },
   "E302": {
     "code": "E302",
@@ -41,8 +41,8 @@
   },
   "C0103": {
     "code": "C0103",
-    "rationale": "Proper naming conventions improve code readability and maintainability. They help other developers understand the purpose and scope of variables, functions, and classes at a glance. Following consistent naming patterns reduces cognitive load and makes code more professional.",
-    "csmPrinciples": "This rule directly supports CSM's readability and consistency principles. Clear, consistent naming conventions help readers quickly understand code structure and purpose, reducing the time needed to comprehend and maintain code."
+    "rationale": "Consistent naming conventions help other developers understand the purpose and scope of variables, functions, and classes at a glance, thus reducing cognitive overload.",
+    "csmPrinciples": "Explanatory Language"
   },
   "D100": {
     "code": "D100",
@@ -53,5 +53,25 @@
     "code": "D103",
     "rationale": "Developers should document the purposes of their work to give context into usage and the project as a whole.",
     "csmPrinciples": "Explanatory Language"
+  },
+  "unused import": {
+    "code": "VULTURE_UNUSED_IMPORT",
+    "rationale": "Unused imports clutter the code and may confuse readers. Removing them improves code clarity and reduces unnecessary dependencies.",
+    "csmPrinciples": "No Unused Content"
+  },
+  "unused variable": {
+    "code": "VULTURE_UNUSED_VARIABLE",
+    "rationale": "Unused variables can indicate incomplete code or logic errors. Removing them makes the codebase cleaner and easier to understand.",
+    "csmPrinciples": "No Unused Content"
+  },
+  "E225": {
+    "code": "E225",
+    "rationale": "Whitespace around operators makes them stand out in expressions and therefore leads to quick comprehension.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "ERA001": {
+    "code": "ERA001",
+    "rationale": "Unused code should be removed to reduce mental effort.",
+    "csmPrinciples": "No Unused Content"
   }
 }

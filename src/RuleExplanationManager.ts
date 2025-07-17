@@ -44,6 +44,13 @@ export class RuleExplanationManager {
       }
     }
 
+    // Check for vulture message patterns (by prefix)
+    for (const key of this.ruleExplanations.keys()) {
+      if (message.startsWith(key)) {
+        return this.ruleExplanations.get(key);
+      }
+    }
+
     return undefined;
   }
 
