@@ -1,6 +1,6 @@
 [MASTER]
 disable=all
-enable=invalid-name, typevar-name-mismatch, redefined-builtin
+enable=invalid-name
 
 [BASIC]
 function-naming-style=snake_case
