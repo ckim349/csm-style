@@ -2,14 +2,17 @@ import * as vscode from "vscode";
 import { exec } from "child_process";
 import * as path from "path";
 import { StyleCheckResult } from "./types";
+import { RuleExplanationManager } from "./RuleExplanationManager";
 
 export class StyleChecker {
   private readonly configPath: string;
   private readonly ignoredViolations: Set<string>;
+  private readonly ruleExplanationManager: RuleExplanationManager;
 
   constructor(extensionPath: string, ignoredViolations: Set<string>) {
     this.configPath = path.join(extensionPath, "src", "config");
     this.ignoredViolations = ignoredViolations;
+    this.ruleExplanationManager = new RuleExplanationManager(extensionPath);
   }
 
   public async checkDocument(
@@ -42,6 +45,12 @@ export class StyleChecker {
       ),
       this.runStyleTool(
         `ruff check --config "${ruffPath}" --preview "${filePath}"`,
+        document,
+        allDiagnostics,
+        allHighlightRanges
+      ),
+      this.runStyleTool(
+        `vulture --config "${ruffPath}" "${filePath}"`,
         document,
         allDiagnostics,
         allHighlightRanges
@@ -88,7 +97,7 @@ export class StyleChecker {
         return;
       }
 
-      const match = row.trim().match(/^(.+?):(\d+):(\d+): (.+)$/);
+      const match = row.trim().match(/^(.+?):(\d+)(?::(\d+))?: (.+)$/);
       if (!match) {
         return;
       }
@@ -106,12 +115,11 @@ export class StyleChecker {
         new vscode.Position(line, lineLength)
       );
 
-      const diagnostic = new vscode.Diagnostic(
+      const diagnostic = this.ruleExplanationManager.createDetailedDiagnostic(
         range,
         message,
         vscode.DiagnosticSeverity.Error
       );
-      diagnostic.source = "NCEA CSM Style";
 
       diagnostics.push(diagnostic);
       highlightRanges.push(range);

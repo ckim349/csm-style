@@ -1,0 +1,427 @@
+{
+  "Q000": {
+    "code": "Q000",
+    "rationale": "Consistent use of double quotes improves code readability. It also makes it easier to include apostrophes in strings without escaping.",
+    "csmPrinciples": "Be Consistent"
+  },
+  "E501": {
+    "code": "E501",
+    "rationale": "Shorter lines improve readability, especially on smaller screens. They also make it easier to compare code side-by-side.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "E302": {
+    "code": "E302",
+    "rationale": "Two blank lines provide clear visual separation between top-level elements, making the code structure more apparent and easier to navigate.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "E303": {
+    "code": "E303",
+    "rationale": "Excessive blank lines can make code harder to navigate. Consistent spacing helps maintain visual clarity.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "CSM1": {
+    "code": "CSM1",
+    "rationale": "Two blank lines before top-level functions and classes provide clear visual separation and improve code readability.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "CSM2": {
+    "code": "CSM2",
+    "rationale": "Two blank lines after top-level functions and classes provide clear visual separation and improve code readability.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "CSM3": {
+    "code": "CSM3",
+    "rationale": "One blank line between methods provides clear visual separation while maintaining the visual grouping of class members.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "CSM4": {
+    "code": "CSM4",
+    "rationale": "Consistent placing of dunder assignments (like __version__, __author__) improves code organization.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "C0103": {
+    "code": "C0103",
+    "rationale": "Consistent naming conventions help other developers understand the purpose and scope of variables, functions, and classes at a glance, thus reducing cognitive overload.",
+    "csmPrinciples": "Explanatory Language"
+  },
+  "D100": {
+    "code": "D100",
+    "rationale": "Developers should document the purposes of their work to give context into usage and the project as a whole.",
+    "csmPrinciples": "Explanatory Language"
+  },
+  "D103": {
+    "code": "D103",
+    "rationale": "Developers should document the purposes of their work to give context into usage and the project as a whole.",
+    "csmPrinciples": "Explanatory Language"
+  },
+  "unused import": {
+    "code": "VULTURE_UNUSED_IMPORT",
+    "rationale": "Unused imports clutter the code and may confuse readers. Removing them improves code clarity and reduces unnecessary dependencies.",
+    "csmPrinciples": "No Unused Content"
+  },
+  "unused variable": {
+    "code": "VULTURE_UNUSED_VARIABLE",
+    "rationale": "Unused variables can indicate incomplete code or logic errors. Removing them makes the codebase cleaner and easier to understand.",
+    "csmPrinciples": "No Unused Content"
+  },
+  "E225": {
+    "code": "E225",
+    "rationale": "Whitespace around operators adds visual separation to make operators stand out and therefore leads to quick comprehension.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "E741": {
+    "code": "E741",
+    "rationale": "The characters l (lowercase letter el), O (uppercase letter oh), or I (uppercase letter eye) as single character variable names can sometimes be indistinguishable from the numerals one and zero. When tempted to use l, use L instead.",
+    "csmPrinciples": "Explanatory Language"
+  },
+  "F403": {
+    "code": "F403",
+    "rationale": "Wildcard importing makes it harder to tell which dependency a class or function came from. It makes the dependencies implicit, rather than explicit, which causes code understandability to suffer.",
+    "csmPrinciples": "Explanatory Language"
+  },
+  "F405": {
+    "code": "F405",
+    "rationale": "Wildcard importing makes it harder to tell which dependency a class or function came from. It makes the dependencies implicit, rather than explicit, which causes code understandability to suffer.",
+    "csmPrinciples": "Explanatory Language"
+  },
+  "D101": {
+    "code": "D101",
+    "rationale": "Developers should document the purposes of their work and serves to give context into usage and the project as a whole.",
+    "csmPrinciples": "Explanatory Language"
+  },
+  "D102": {
+    "code": "D102",
+    "rationale": "Developers should document the purposes of their work and serves to give context into usage and the project as a whole.",
+    "csmPrinciples": "Explanatory Language"
+  },
+  "D104": {
+    "code": "D104",
+    "rationale": "Developers should document the purposes of their work and serves to give context into usage and the project as a whole.",
+    "csmPrinciples": "Explanatory Language"
+  },
+  "D105": {
+    "code": "D105",
+    "rationale": "Developers should document the purposes of their work and serves to give context into usage and the project as a whole.",
+    "csmPrinciples": "Explanatory Language"
+  },
+  "D106": {
+    "code": "D106",
+    "rationale": "Developers should document the purposes of their work and serves to give context into usage and the project as a whole.",
+    "csmPrinciples": "Explanatory Language"
+  },
+  "D107": {
+    "code": "D107",
+    "rationale": "Developers should document the purposes of their work and serves to give context into usage and the project as a whole.",
+    "csmPrinciples": "Explanatory Language"
+  },
+  "D419": {
+    "code": "D419",
+    "rationale": "Developers should document the purposes of their work and serves to give context into usage and the project as a whole.",
+    "csmPrinciples": "Explanatory Language"
+  },
+  "D402": {
+    "code": "D402",
+    "rationale": "Docstrings provide value because they describe the intent and meaning of the function, rather than simply reiterating the function parameters.",
+    "csmPrinciples": "Explanatory Language"
+  },
+  "N818": {
+    "code": "N818",
+    "rationale": "Consistent naming conventions help other developers understand the purpose and scope of variables, functions, and classes at a glance, thus reducing cognitive overload.",
+    "csmPrinciples": "Explanatory Language"
+  },
+  "W291": {
+    "code": "ERA001",
+    "rationale": "IDK.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "W505": {
+    "code": "W505",
+    "rationale": "Shorter lines improve readability, especially on smaller screens. They also make it easier to compare code side-by-side.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "E128": {
+    "code": "E128",
+    "rationale": "Indents should be purposefully used to clearly distinguish the new line as a continuation line for visual clarity.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "E122": {
+    "code": "E122",
+    "rationale": "Indents should be purposefully used to clearly distinguish the new line as a continuation line for visual clarity.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "E701": {
+    "code": "E701",
+    "rationale": "Lower expression density simplifies the code and thus increases readability.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "W504": {
+    "code": "W504",
+    "rationale": "Line breaks before the binary operator in an expression keeps the operators left- aligned and thus more readable. However, this is not an enforced rule. The key point is to be consistent with where you line break.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "E124": {
+    "code": "E124",
+    "rationale": "Indents should be purposefully used to clearly distinguish the new line as a continuation line for visual clarity.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "D200": {
+    "code": "D200",
+    "rationale": "This keeps the one line docstring clean and easy to read for developers and equally indicates that no information is missing.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "D205": {
+    "code": "D205",
+    "rationale": "By including both a summary and an elaboration, it builds on the understanding of what the functionality is intended to do. Equally important, by having a clear format in which to follow, developers can quickly skim through multiline doc strings and makes the information easy to parse.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "E111": {
+    "code": "E111",
+    "rationale": "This enhances visual separation of code blocks and thus reduces cognitive overhead when scanning or editing code.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "W191": {
+    "code": "W191",
+    "rationale": "Tabs have no fixed visual width, unlike spaces, and thus can cause code to be less readable depending on the computer you're using.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "E116": {
+    "code": "E116",
+    "rationale": "Indentation of a comment should match the code it is referencing for less confusion and more visual clarity.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "E301": {
+    "code": "E301",
+    "rationale": "A blank line provide clear visual separation between top-level elements, making the code structure more apparent and easier to navigate.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "E305": {
+    "code": "E305",
+    "rationale": "Two blank lines after top-level functions and classes provide clear visual separation and improve code readability.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "E306": {
+    "code": "E306",
+    "rationale": "A blank line provide clear visual separation between top-level elements, making the code structure more apparent and easier to navigate.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "E401": {
+    "code": "E401",
+    "rationale": "Makes imports stand out, allowing for easier understanding of which imports have been used as well as easier editing of code",
+    "csmPrinciples": "Clear Layout"
+  },
+  "E402": {
+    "code": "E402",
+    "rationale": "It is confusing if imports happen in the middle of the file and equally reduces readability of the code as the import would then be unexpected. Keeping imports at top makes it obvious that it will be used later in the file.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "F404": {
+    "code": "F404",
+    "rationale": "Future imports always appear in the module before any other code except docstrings for visual clarity and readability.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "E201": {
+    "code": "E201",
+    "rationale": "Whitespace after brackets create visual separation and clutter without adding anything to the code, thus decreasing readability.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "E202": {
+    "code": "E202",
+    "rationale": "Whitespace before brackets create visual separation and clutter without adding anything to the code, thus decreasing readability.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "E203": {
+    "code": "E203",
+    "rationale": "Whitespace before punctuation create visual separation and clutter without adding anything to the code, thus decreasing readability.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "E211": {
+    "code": "E211",
+    "rationale": "Whitespace before brackets create visual separation and clutter without adding anything to the code, thus decreasing readability.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "E221": {
+    "code": "E221",
+    "rationale": "Excessive whitespace before an operator creates visual separation and clutter without adding anything to the code, thus decreasing readability.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "E222": {
+    "code": "E222",
+    "rationale": "Excessive whitespace after an operator creates visual separation and clutter without adding anything to the code, thus decreasing readability.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "E226": {
+    "code": "E226",
+    "rationale": "Whitespace around operators adds visual separation to make operators stand out and therefore leads to quick comprehension.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "E227": {
+    "code": "E227",
+    "rationale": "Whitespace around operators adds visual separation to make operators stand out and therefore leads to quick comprehension.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "E231": {
+    "code": "E231",
+    "rationale": "Whitespace around punctuation adds visual separation to make them stand out and therefore leads to quick comprehension.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "E251": {
+    "code": "E251",
+    "rationale": "The omission of whitespaces around the equals sign visually distinguishes parameter default values from normal variable assignments",
+    "csmPrinciples": "Clear Layout"
+  },
+  "E702": {
+    "code": "E702",
+    "rationale": "Lower expression density simplifies the code and thus increases readability.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "E261": {
+    "code": "E261",
+    "rationale": "Adding two whitespaces before an inline comment creates visual separation between the code and the comment thus increasing readability.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "E262": {
+    "code": "E262",
+    "rationale": "A whitespace after the # adds visual separation to make the comment stand out.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "E265": {
+    "code": "E265",
+    "rationale": "A whitespace after the # adds visual separation to make the comment stand out.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "E266": {
+    "code": "E266",
+    "rationale": "Consistently using a single '#' increases readability.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "D201": {
+    "code": "D201",
+    "rationale": "The omission of blanklines between a function declaration and a docstring enforces a direct connection between the code and the one line docstring.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "D202": {
+    "code": "D202",
+    "rationale": "The omission of blanklines between a function docstring and the function body enforces a direct connection between the code and the one line docstring.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "D204": {
+    "code": "D204",
+    "rationale": "A class needs to have a blank line to clearly define where the documentation ends for the class and where the executable implementations (i.e functions) lay within the class.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "D206": {
+    "code": "D206",
+    "rationale": "Tabs have no fixed visual width, unlike spaces, and thus can cause code to be less readable depending on the computer you're using.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "D207": {
+    "code": "D207",
+    "rationale": "Indents should be purposefully used to clearly distinguish the new line as a continuation line for visual clarity.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "D208": {
+    "code": "D208",
+    "rationale": "Indents should be purposefully used to clearly distinguish the new line as a continuation line for visual clarity.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "E125": {
+    "code": "E125",
+    "rationale": "Indents should be purposefully used to clearly distinguish the new line as a continuation line for visual clarity.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "E126": {
+    "code": "E126",
+    "rationale": "Indents should be purposefully used to clearly distinguish the new line as a continuation line for visual clarity.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "E127": {
+    "code": "E127",
+    "rationale": "Indents should be purposefully used to clearly distinguish the new line as a continuation line for visual clarity.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "E101": {
+    "code": "E101",
+    "rationale": "Tabs have no fixed visual width, unlike spaces, and thus can cause code to be less readable depending on the computer you're using. Mixing spaces and tabs will cause even futher differences in visual width and thus line alignment.",
+    "csmPrinciples": "Clear Layout"
+  },
+  "E714": {
+    "code": "E714",
+    "rationale": " By using is not, it is immediately obvious that we are dealing with a negation of an expression upfront rather than mentally negating after seeing the whole expression.",
+    "csmPrinciples": "Simple Constructs"
+  },
+  "E731": {
+    "code": "E731",
+    "rationale": "By using a def statement, developers increase the clarity of the code by having an explicit definition of a function rather than being inferred from the lambda expression.",
+    "csmPrinciples": "Simple Constructs"
+  },
+  "C901": {
+    "code": "C901",
+    "rationale": "Overly complex functions should be simplified to make the code easier to edit and maintain.",
+    "csmPrinciples": "Simple Constructs"
+  },
+  "SIM102": {
+    "code": "SIM102",
+    "rationale": "Nesting if statements leads to deeper indentation and makes code harder to read.",
+    "csmPrinciples": "Simple Constructs"
+  },
+  "Q002": {
+    "code": "Q002",
+    "rationale": "Consistently using double quotes allows the programmer to focus on the code itself without the clutter of seeing different types of quotes crop up, thus increasing readability.",
+    "csmPrinciples": "Be Consistent"
+  },
+  "D400": {
+    "code": "D400",
+    "rationale": "Maintaining proper punctuation in a docstring is important to convey the meaning of the comment.",
+    "csmPrinciples": "Be Consistent"
+  },
+  "D403": {
+    "code": "D403",
+    "rationale": "Maintaining proper punctuation in a docstring is important to convey the meaning of the comment.",
+    "csmPrinciples": "Be Consistent"
+  },
+  "D404": {
+    "code": "D404",
+    "rationale": "Consistently writing the first line of a docstring in the imperative mood leverages familiarity and oftentimes makes the docstring more concise.",
+    "csmPrinciples": "Be Consistent"
+  },
+  "D405": {
+    "code": "D405",
+    "rationale": "Maintaining proper punctuation in a docstring is important to convey the meaning of the comment.",
+    "csmPrinciples": "Be Consistent"
+  },
+  "D415": {
+    "code": "D415",
+    "rationale": "Maintaining proper punctuation in a docstring is important to convey the meaning of the comment.",
+    "csmPrinciples": "Be Consistent"
+  },
+  "D300": {
+    "code": "D300",
+    "rationale": "Consistently using triple double quotes for docstrings allows the programmer to focus on the code itself without the clutter of seeing different types of quotes crop up, thus increasing readability.",
+    "csmPrinciples": "Be Consistent"
+  },
+  "D209": {
+    "code": "D209",
+    "rationale": "Consistently putting closing quotes on their own line allows the programmer to focus on the code itself without the clutter of seeing approaches, thus increasing readability.",
+    "csmPrinciples": "Be Consistent"
+  },
+  "D401": {
+    "code": "D401",
+    "rationale": "Consistently writing the first line of a docstring in the imperative mood leverages familiarity and oftentimes makes the docstring more concise.",
+    "csmPrinciples": "Be Consistent"
+  },
+  "N804": {
+    "code": "N804",
+    "rationale": "By using self and cls first, we maintain a consistent design for methods. Using class_ instead of clss equally increases readability between clashing names (i.e clss vs class_ for a clash with cls).",
+    "csmPrinciples": "Be Consistent"
+  },
+  "N805": {
+    "code": "N805",
+    "rationale": "By using self and cls first, we maintain a consistent design for methods. Using class_ instead of clss equally increases readability between clashing names (i.e clss vs class_ for a clash with cls).",
+    "csmPrinciples": "Be Consistent"
+  },
+  "RET502": {
+    "code": "RET502",
+    "rationale": "The code is more predictable if all returns in a function either return something or nothing.",
+    "csmPrinciples": "Be Consistent"
+  }
+}

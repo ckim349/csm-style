@@ -17,3 +17,15 @@ def outer():
         pass
     def inner2():
         pass
+
+def foo(a, b, c):
+    if a:
+        if b:
+            if c:
+                return 1
+            else:
+                return 2
+        else:
+            return 3
+    else:
+        return 4

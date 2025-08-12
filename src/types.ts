@@ -16,3 +16,9 @@ export interface DecorationManager {
   clearDecorations(document: vscode.TextDocument): void;
   dispose(): void;
 }
+
+export interface RuleExplanation {
+  code: string;
+  rationale: string;
+  csmPrinciples?: string;
+}

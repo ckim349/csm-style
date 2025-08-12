@@ -1,6 +1,6 @@
 [MASTER]
 disable=all
-enable=invalid-name, typevar-name-mismatch, redefined-builtin
+enable=invalid-name
 
 [BASIC]
 function-naming-style=snake_case
@@ -13,3 +13,9 @@ method-naming-style=snake_case
 module-naming-style=snake_case
 class-attribute-naming-style=snake_case
 good-names=i,j,k,x,y,z,_,T
+
+[SIMILARITIES]
+min-similarity-lines=4
+ignore-comments=yes
+ignore-docstrings=yes
+ignore-imports=yes
