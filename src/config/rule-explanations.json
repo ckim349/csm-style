@@ -129,9 +129,14 @@
     "rationale": "Consistent naming conventions help other developers understand the purpose and scope of variables, functions, and classes at a glance, thus reducing cognitive overload.",
     "csmPrinciples": "Explanatory Language"
   },
-  "W291": {
+  "ERA001": {
     "code": "ERA001",
-    "rationale": "IDK.",
+    "rationale": "Commented out code should be removed to reduce clutter and thus mental effort when reading the code. When code is commented out, it creates ambiguity about whether it's temporarily disabled, an alternative approach, or just forgotten cleanup.",
+    "csmPrinciples": "No Unused Content"
+  },
+  "W291": {
+    "code": "W291",
+    "rationale": "Trailing whitespace at the end of a line is unnecessary in all cases, and can lead to issues in some text editors. The problem is that these whitespaces are practically invisible, and so it's important to be wary of them.",
     "csmPrinciples": "Clear Layout"
   },
   "W505": {
@@ -206,7 +211,7 @@
   },
   "E401": {
     "code": "E401",
-    "rationale": "Makes imports stand out, allowing for easier understanding of which imports have been used as well as easier editing of code",
+    "rationale": "Single line imports make imports stand out, allowing for easier understanding of which imports have been used as well as easier editing of code",
     "csmPrinciples": "Clear Layout"
   },
   "E402": {
